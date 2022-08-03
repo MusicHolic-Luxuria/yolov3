@@ -6,6 +6,7 @@ Usage:
     $ python path/to/train.py --data coco128.yaml --weights yolov3.pt --img 640
 """
 import argparse
+from enum import Flag
 import math
 import os
 import random
@@ -614,7 +615,7 @@ def main(opt, callbacks=Callbacks()):
 
 def run(**kwargs):
     # Usage: import train; train.run(data='coco128.yaml', imgsz=320, weights='yolov3.pt')
-    opt = parse_opt(True)
+    opt = parse_opt(False)
     for k, v in kwargs.items():
         setattr(opt, k, v)
     main(opt)
